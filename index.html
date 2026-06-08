@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER DEFENSE SIMULATOR</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ── INTRO SPLASH ── -->
+  <div id="intro">
+    <div id="intro-title">⚠ CYBER DEFENSE SIMULATOR ⚠</div>
+    <div id="intro-sub">
+      A THREAT ACTOR HAS BREACHED YOUR NETWORK PERIMETER<br>
+      DEFEND YOUR INFRASTRUCTURE BEFORE CRITICAL SYSTEMS FAIL
+    </div>
+    <div id="intro-rules">
+      <div class="rule-row"><span class="rule-icon">☠</span> Watch for nodes under attack — they will flash red</div>
+      <div class="rule-row"><span class="rule-icon">🖱</span> Click an attacked node to open the defense console</div>
+      <div class="rule-row"><span class="rule-icon">🛡</span> Select the correct MITRE ATT&CK mitigation to secure it</div>
+      <div class="rule-row"><span class="rule-icon">⏱</span> Act fast — nodes auto-compromise if left undefended</div>
+      <div class="rule-row"><span class="rule-icon">❤</span> You have 5 system health points — don't let them reach zero</div>
+    </div>
+    <button id="start-btn">INITIATE DEFENSE PROTOCOL</button>
+  </div>
+
+  <!-- ── HUD BAR ── -->
+  <div id="hud">
+    <div id="hud-title">⬡ NETWORK DEFENSE CONSOLE</div>
+
+    <div id="hud-stats">
+      <div class="stat-block">
+        <div class="stat-label">Nodes Secured</div>
+        <div class="stat-value secured" id="secured-val">0</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">Compromised</div>
+        <div class="stat-value compromised" id="compromised-val">0</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">System Health</div>
+        <div class="stat-value health" id="health-val">5</div>
+      </div>
+      <div id="health-bar-wrap">
+        <div class="stat-label">INTEGRITY</div>
+        <div id="health-bar"><div id="health-fill"></div></div>
+      </div>
+      <div id="threat-level-wrap">
+        <div class="threat-dot"></div>
+        <div id="threat-text">THREAT ACTIVE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NETWORK MAP ── -->
+  <div id="map">
+    <svg id="svg-connections" xmlns="http://www.w3.org/2000/svg"></svg>
+
+    <!-- Sprite -->
+    <div id="sprite">
+      <div id="sprite-core"></div>
+      <div id="sprite-trail"></div>
+    </div>
+
+    <!-- Nodes are injected by JS -->
+  </div>
+
+  <!-- ── CORNER DECORATIONS ── -->
+  <div class="corner-deco tl"></div>
+  <div class="corner-deco tr"></div>
+  <div class="corner-deco bl"></div>
+  <div class="corner-deco br"></div>
+
+  <!-- ── MITIGATION MODAL ── -->
+  <div id="modal-overlay">
+    <div id="modal">
+      <div id="modal-header">
+        <div id="modal-node-icon">🌐</div>
+        <div id="modal-header-text">
+          <div id="modal-attack-badge">◉ UNDER ATTACK</div>
+          <div id="modal-node-name">Node Name</div>
+          <div id="modal-technique">MITRE Technique</div>
+        </div>
+      </div>
+
+      <div id="modal-body">
+        <div id="modal-scenario">Scenario text here.</div>
+        <div id="modal-question">SELECT YOUR MITIGATION:</div>
+        <div id="modal-options">
+          <!-- Options injected by JS -->
+        </div>
+        <div id="modal-feedback"></div>
+        <div id="modal-mitre-tag"></div>
+        <button id="modal-continue-btn">CONTINUE DEFENSE →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EVENT LOG ── -->
+  <div id="log-panel">
+    <div id="log-title">▸ THREAT INTELLIGENCE FEED</div>
+    <div id="log-entries"></div>
+  </div>
+
+  <!-- ── END SCREEN ── -->
+  <div id="end-screen">
+    <div id="end-title">GAME OVER</div>
+    <div id="end-subtitle">Subtitle text here.</div>
+    <div id="end-score">Score info</div>
+    <button id="restart-btn">REINITIALISE NETWORK</button>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
